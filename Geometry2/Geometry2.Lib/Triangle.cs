@@ -8,7 +8,7 @@ namespace Geometry2.Lib
 {
     public class Triangle : IShape, IEquatable<Triangle>
     {
-        const int NUMBEROFSIDES = 4;
+        const int NUMBEROFSIDES = 3;
 
         int _sideA, _sideB, _sideC;   //private
         int _angleA, _angleB, _angleC;
@@ -24,6 +24,11 @@ namespace Geometry2.Lib
             _sides.Add(c);
             _sides.Sort(); //sides are sorted by length
 
+            if(_sides[0] + _sides[1] <= _sides[2])
+            {
+                throw new TriangleExceptions(1, "The sidelengths were invalid when trying to construct a triangle");
+            }
+
             //using cosine rule and sine rule
             _angleA = Convert.ToInt32(Math.Acos((double)(b * b + c * c - a * a) / (2 * b * c)) * 180 / Math.PI); 
             _angleB = Convert.ToInt32(Math.Asin((b * Math.Sin(_angleA * Math.PI/180) / a)) * 180 / Math.PI);
@@ -36,19 +41,16 @@ namespace Geometry2.Lib
         }
 
         
-        public string setSides(int a, int b, int c)
+        public void setSides(int a, int b, int c)
         {
-            if(newSidesValid(a,b,c))
+            if (newSidesValid(a, b, c))
             {
                 _sides[0] = a;
                 _sides[1] = b;
                 _sides[2] = c;
                 _sides.Sort();
-                
-                return "successfully changed the sides";
             }
-
-            return "input not valid";
+            else throw new TriangleExceptions(2, "The sidelengths were invalid when trying to set the sides of a triangle");
 
         }
 
@@ -72,7 +74,6 @@ namespace Geometry2.Lib
             sides.Sort();
             bool notNegative = sides.Any(x => x > 0);
             return notNegative && sides[2] < sides[1] + sides[0];
-
         }
 
         public bool IsIsosceles
