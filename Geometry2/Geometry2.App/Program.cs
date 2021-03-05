@@ -54,7 +54,6 @@ namespace Geometry2.App
 
             t2.setSides(7, 10, 10);
             Debug.Assert(t2.ThreeSides[0] == 7);
-
         }
 
         private static void TestCircle()
