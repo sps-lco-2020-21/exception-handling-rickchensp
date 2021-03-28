@@ -4,15 +4,14 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2C318D7E-F770-4D02-98CB-5CFCC80E719E}</ProjectGuid>
+    <ProjectGuid>{A47DCA77-0DC2-4EBE-B322-AAC9DAAC9822}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Exceptions.App</RootNamespace>
-    <AssemblyName>Exceptions.App</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <RootNamespace>ExceptionsNew.App</RootNamespace>
+    <AssemblyName>ExceptionsNew.App</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -49,12 +48,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Exceptions.Lib\Exceptions.Lib.csproj">
-      <Project>{c644b949-b98a-4720-8931-8094c32d42e3}</Project>
-      <Name>Exceptions.Lib</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
